@@ -12,10 +12,10 @@ class Doctor
 
   def add_appointment(appointment)
     @appointments << appointment
-    appointment.doctor = self #=> Tells appointment that it belonds to the dr.
+    appointment.doctor = self #=> assoc. this app. with this inst. of Dr.
   end
 
-  def patients
+  def patients #=> assoc. dr. patients via app.
     @appointments.collect{|appointment| appointment.patient}
   end
 end
