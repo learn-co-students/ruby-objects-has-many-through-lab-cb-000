@@ -3,7 +3,7 @@ class Doctor
 
 	def initialize(name)
 		@name = name
-		@appointments = []
+		@@appointments = []
 	end
 
 	def name
@@ -11,17 +11,16 @@ class Doctor
 	end
 
 	def add_appointment(appointment)
-		@appointments << appointment
+		@@appointments << appointment
 		appointment.doctor = self
 	end
 
 	def appointments
-		@appointments
+		@@appointments
 	end
 
 	def patients
 		#has many patients through appointments
-		@patients = []
-		@patients = Appointment.itself
+		Patient.add_appointment(appointment) = []
 	end
 end
