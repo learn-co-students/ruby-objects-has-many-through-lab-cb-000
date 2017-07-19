@@ -1,5 +1,5 @@
 class Genre
-	attr_accessor :name, :song, :artist
+	attr_accessor :name
 
 	@@genres = []
 
@@ -8,24 +8,17 @@ class Genre
 		@songs = []
 	end
 
-	def self.genres 
-		@@genres # add genre object that has appropriate @name
-	end
-
-	def self.song
-		@song
-	end
-
-	def self.artist
-		@artist
-	end
-
 	def songs
-		@songs << Song.song
-		@songs
+		@songs 
 	end
 	
+	def add_song(song)
+		@songs << song
+	end
+
 	def artists
-		@artists << Artist.name
+		@songs.collect do |song|
+			song.artist
+		end
 	end
 end
