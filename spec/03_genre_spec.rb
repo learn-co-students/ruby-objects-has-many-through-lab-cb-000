@@ -1,41 +1,32 @@
 require "spec_helper"
-require 'pry'
 
-describe "Genre" do 
+describe "Song" do
 
-  describe "#new" do 
-    it "initializes with a name and an empty collection of songs" do
-      country = Genre.new("country")
-      expect{Genre.new("pop")}.to_not raise_error
-      expect(country.instance_variable_get(:@songs)).to eq([])
-    end
-  end
-
-  describe "#name" do 
-    it "has a name" do 
+  describe "#new" do
+    it "initializes with a name and a genre" do
       rap = Genre.new("rap")
-      expect(rap.name).to eq("rap")
+      expect{Song.new("Lucifer", rap)}.to_not raise_error
     end
   end
 
-  describe "#songs" do 
-    it "has many songs" do
-      rap = Genre.new("rap")
-      ninety_nine_problems = Song.new("99 Problems", rap)
-       
-      expect(rap.songs).to include(ninety_nine_problems)
-    end
-  end
-
-  describe "#artists" do 
-    it "has many artists, through songs" do 
+  describe "#genre" do
+    it "belongs to a genre" do
       jay_z = Artist.new("Jay-Z")
       rap = Genre.new("rap")
       ninety_nine_problems = Song.new("99 Problems", rap)
-      
-      jay_z.add_song(ninety_nine_problems)
-      expect(rap.artists).to include(jay_z)
-      expect(rap.songs.first.artist).to eq(jay_z)
+
+      expect(ninety_nine_problems.genre).to eq(rap)
+    end
+  end
+
+  describe "#artist" do
+    it "belongs to a artist" do
+      jay_z = Artist.new("Jay-Z")
+      rap = Genre.new("rap")
+      ninety_nine_problems = Song.new("99 Problems", rap)
+
+      ninety_nine_problems.artist = jay_z
+      expect(ninety_nine_problems.artist).to eq(jay_z)
     end
   end
 end
