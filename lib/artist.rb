@@ -8,14 +8,12 @@ class Artist
   end
 
   def add_song(song)
-    @songs << song
+    self.songs << song
     song.artist = self
   end
 
   def genres
-    self.songs.collect do |song|
-      song.genre
-    end
+    self.songs.collect { |song| song.genre }
   end
 
 end
