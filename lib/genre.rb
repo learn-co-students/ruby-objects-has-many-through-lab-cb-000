@@ -9,6 +9,13 @@ class Genre
   end
 
   # has many songs
+  def songs
+    @songs
+  end
+
+  def add_song(song)
+    @songs << song
+  end
 
   # has many artists, through songs
 end
