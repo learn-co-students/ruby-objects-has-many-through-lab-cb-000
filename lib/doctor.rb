@@ -21,5 +21,6 @@ class Doctor
 
   # has many patients, through appointments
   def patients
+    self.appointments.map { |appointment| appointment.patient }
   end
 end
