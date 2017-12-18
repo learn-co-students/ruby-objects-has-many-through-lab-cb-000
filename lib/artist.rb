@@ -20,6 +20,8 @@ class Artist
   end
 
   # has many genres, through songs
+  # The #genres method iterates over the @songs array, stored in the #songs instance method, and calls the #genre method on each song in order to collect the genre that is associated to that song. The return value of the #genres method should be an array of genre objects.
   def genres
+    self.songs.collect { |song| song.genre }
   end
 end
