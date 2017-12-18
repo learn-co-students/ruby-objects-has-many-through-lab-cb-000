@@ -18,4 +18,8 @@ class Genre
   end
 
   # has many artists, through songs
+  # The Genre #artists method iterates over the genre's @songs collection, calls the #artists method on each song object and collects the resulting artists.
+  def artists
+    @songs.collect { |song| song.artist }
+  end
 end
