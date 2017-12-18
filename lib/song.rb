@@ -1,4 +1,5 @@
 class Song
+  # belongs to a artist
   attr_accessor :name, :artist, :genre
 
   # initializes with a name and a genre
